@@ -88,7 +88,7 @@ Adding users to the Organizational Units created.
 <img src="./Screenshots/user-creation.png" width="700">
 
 
-Execute the Script 1 in Scripts Folder
+**Execute the Script : User_Creation**
 
 
 
