@@ -55,7 +55,7 @@ Before setting up the lab, ensure the following software and tools are available
 | FS01 | File Server, Print Server |
 | CLIENT01 | Domain-joined workstation |
 
-<img src="./screenshots/architecture-diagram.png" width="700">
+<img src="./Screenshots/AD-ARCHITECTURE.png" width="700">
 
 ---
 
@@ -64,17 +64,6 @@ Before setting up the lab, ensure the following software and tools are available
 ### Organizational Unit (OU) Structure
 
 A structured OU hierarchy was implemented to enable scalable administration and clean Group Policy targeting.
-
-corp.local
-├── Admins
-├── Servers
-├── Workstations
-├── CorpUsers
-│ ├── Finance
-│ ├── HR
-│ └── IT
-└── Groups
-
 
 **OU Design Rationale**
 - **Admins** – Administrative user accounts  
