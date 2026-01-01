@@ -100,7 +100,19 @@ execute the Script 1 in Scripts Folder
 
 ### Security Groups Creation and making users members of creating sec-groups.
 
-execute group.ps1 in Scripts 
+### Security Groups & Role-Based Access Control (RBAC)
+
+Role-Based Access Control (RBAC) was implemented by assigning permissions to **security groups** instead of individual users, ensuring scalability, consistency, and simplified access management.
+
+| **Group Name**          | **Purpose**                          |
+|-------------------------|--------------------------------------|
+| **HR_Read**             | Read-only access to HR data           |
+| **Finance_Modify**      | Modify access to Finance data         |
+| **IT_Admin**            | Administrative privileges            |
+| **Workstation_Users**   | Standard domain workstation users    |
+
+
+Execute group.ps1 in Scripts 
 
 
 
@@ -112,15 +124,14 @@ execute group.ps1 in Scripts
 - `IT_Admin`
 - `Workstation_Users`
 
-Role-Based Access Control (RBAC) was implemented by assigning permissions to **security groups instead of individual users**, following enterprise best practices.
 
-<img src="./screenshots/users-groups.png" width="700">
-
----
 
 ## File Server Configuration
 
 A centralized file server (**FS01**) was configured and joined to the domain.
+
+<img src="./Screenshots/file-shares.png" width="700">
+
 
 ### Shared Folders
 
@@ -133,7 +144,7 @@ A centralized file server (**FS01**) was configured and joined to the domain.
 - Default permissions were removed  
 - Access controlled strictly through security groups  
 
-<img src="./screenshots/file-shares.png" width="700">
+<img src="./Screenshots/file-shares.png" width="700">
 
 ---
 
