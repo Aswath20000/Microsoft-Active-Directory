@@ -185,12 +185,25 @@ Share permissions were used to control network-level access, while NTFS permissi
 
 
 ### User Restrictions Policy
-- Control Panel and Windows Settings blocked
-- Applied to `OU=CorpUsers`
 
-<img src="./screenshots/control-panel-blocked.png" width="700">
+A dedicated Group Policy Object (GPO) was created to enforce user-level restrictions and linked to the `CorpUsers` Organizational Unit. This ensures restrictions follow users regardless of the workstation they log into.
 
----
+#### Policy Scope
+- **Applied to:** `OU=CorpUsers`
+- **Policy Type:** User Configuration
+
+#### Configured Settings
+- Prohibit access to Control Panel and Windows Settings
+
+<img src="./screenshots/USER-POLICY-CONTROL.png" width="700">
+<img src="./screenshots/CONTROL--PANEL.png" width="700">
+
+#### Policy Enforcement Result
+
+When a standard domain user attempts to access the Control Panel or Windows Settings, access is denied as expected.
+
+<img src="./screenshots/CONTROL-PANEL-DENIED.png" width="700">
+
 
 ## Drive Mapping via GPO
 
