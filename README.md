@@ -220,28 +220,62 @@ Network drives were automated using **Group Policy Preferences**.
 
 ---
 
-## USB Security Enforcement
+### Workstation Security Policy (USB Storage Control)
 
-USB storage devices were blocked using a **Computer Configuration Group Policy**.
+A computer-based Group Policy Object (GPO) was implemented to restrict the use of removable storage devices across all domain-joined workstations.
 
+#### Policy Scope
+- **Applied to:** `OU=Workstations`
+- **Policy Type:** Computer Configuration
 
-- Applied to `OU=Workstations`
-- Validated using VMware USB passthrough  
+#### Configured Settings
+- Deny all access to removable storage devices
 
-<img src="./screenshots/usb-blocked.png" width="700">
+<img src="./Screenshots/USB-WORKSTATION.png" width="700">
+<img src="./Screenshots/USB2.png" width="700">
+
+#### Policy Enforcement Result
+
+When a USB storage device is inserted into a domain-joined workstation, access is blocked in accordance with the security policy.
+
+<img src="./Screenshots/policy.png" width="700">
+
 
 ---
 
-## Printer Deployment
+## Print Server and Printer Deployment
 
-A centralized print server was deployed on **FS01**.
+A centralized print server was deployed to manage and distribute printers across the domain using Group Policy Preferences and Role-Based Access Control (RBAC).
 
-- Print and Document Services installed
-- Virtual printer created and shared
-- Deployed via Group Policy Preferences
-- Targeted using `Finance_Modify`
+### Print Server Setup
+- Installed **Print and Document Services** role on the file server
+- Configured shared printers for centralized management
 
-<img src="./screenshots/printer-deployed.png" width="700">
+<img src="./Screenshots/print1.png" width="700">
+<img src="./Screenshots/print2.png" width="700">
+
+### Printer Configuration
+A departmental printer was created and shared from the print server for Finance users.
+
+<img src="./Screenshots/print3.png" width="700">
+
+### Printer Deployment via Group Policy
+Printers were deployed using Group Policy Preferences to automatically map printers at user logon.
+
+- **Deployment Method:** Group Policy Preferences
+- **Action:** Update
+- **Share Path:** `\\FS01\Finance_Printer`
+
+<img src="./Screenshots/print4.png" width="700">
+
+### RBAC-Based Targeting
+Item-level targeting was used to ensure the printer is deployed only to authorized users.
+
+- **Security Group:** `Finance_Modify`
+- **Target Type:** User group membership
+
+<img src="./Screenshots/print5.png" width="700">
+
 
 ---
 
