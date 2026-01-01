@@ -147,7 +147,13 @@ Share permissions were used to control network-level access, while NTFS permissi
 
 - NTFS permissions enforced least-privilege access  
 - Default permissions were removed  
-- Access controlled strictly through security groups  
+- Access controlled strictly through security groups
+
+  <img src="./Screenshots/FINANCE-ACC-DENIED.png" width="700">
+
+  Members of Finance_Modify Security group were denied access to HR Shared Folder
+
+
 
 
 
@@ -156,9 +162,27 @@ Share permissions were used to control network-level access, while NTFS permissi
 ## Group Policy Implementation
 
 ### Domain Security Policies
-- Password complexity enforced
-- Account lockout configured
+
 - Applied at the domain level
+
+<img src="./Screenshots/DOMAIN-PASSWORD-GPO.png" width="700">
+
+- Password complexity enforced
+
+<img src="./Screenshots/PASSWORD-POLICY.png" width="700">
+
+
+- Account lockout configured
+
+<img src="./Screenshots/ACCOUNT-LOCKOUT.png" width="700">
+
+
+
+
+
+
+
+
 
 ### User Restrictions Policy
 - Control Panel and Windows Settings blocked
