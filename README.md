@@ -124,8 +124,6 @@ Execute group.ps1 in Scripts
 - `IT_Admin`
 - `Workstation_Users`
 
-
-
 ## File Server Configuration
 
 A centralized file server (**FS01**) was configured and joined to the domain.
@@ -139,6 +137,13 @@ A centralized file server (**FS01**) was configured and joined to the domain.
 |----|----|----|
 | Finance | `C:\Shares\Finance` | Finance_Modify – Modify |
 | HR | `C:\Shares\HR` | HR_Read – Read |
+
+<img src="./Screenshots/NTFS.png" width="700">
+<img src="./Screenshots/SHARE.png" width="700">
+
+
+Share permissions were used to control network-level access, while NTFS permissions enforced granular file system security. Effective access was determined by the most restrictive combination of both permission sets, following Microsoft best practices.
+
 
 - NTFS permissions enforced least-privilege access  
 - Default permissions were removed  
