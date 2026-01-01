@@ -1,37 +1,51 @@
 # Active Directory Infrastructure Lab – Windows Server 2022
 
-An enterprise-style on-premises Active Directory lab built using Windows Server 2022 in VMware Workstation Pro, demonstrating structured OU design, Role-Based Access Control (RBAC), Group Policy enforcement, centralized file and printer services, and validation from domain-joined client systems.
+An enterprise-style on-premises Active Directory lab built using Windows Server 2022 in VMware Workstation Pro.  
+This project demonstrates structured Organizational Unit (OU) design, Role-Based Access Control (RBAC), Group Policy enforcement, centralized file and printer services, and validation from domain-joined client systems.
 
 ---
 
 ## Table of Contents
-1. Overview  
-2. Architecture  
-3. Technologies Used  
-4. Active Directory Design  
-5. Users and Groups (RBAC)  
-6. File Server Configuration  
-7. Group Policy Implementation  
-8. Drive Mapping via GPO  
-9. USB Security Enforcement  
-10. Printer Deployment  
-11. Validation and Testing  
-12. Conclusion  
+
+1. [Overview](#overview)
+2. [Prerequisites](#prerequisites)
+3. [Architecture](#architecture)
+4. [Active Directory Design](#active-directory-design)
+5. [Users and Groups (RBAC)](#users-and-groups-rbac)
+6. [File Server Configuration](#file-server-configuration)
+7. [Group Policy Implementation](#group-policy-implementation)
+8. [Drive Mapping via GPO](#drive-mapping-via-gpo)
+9. [USB Security Enforcement](#usb-security-enforcement)
+10. [Printer Deployment](#printer-deployment)
+11. [Validation and Testing](#validation-and-testing)
+12. [Conclusion](#conclusion)
 
 ---
 
-## 1. Overview
+## Overview
 
-This project simulates a real-world enterprise Active Directory environment.  
-It focuses on identity management, security policy enforcement, and centralized resource management using Microsoft Windows Server technologies.
+This project simulates a real-world enterprise Active Directory environment commonly managed by system administrators.  
+It focuses on centralized identity management, access control, security policy enforcement, and automated resource deployment using Microsoft Windows Server technologies.
 
-The lab demonstrates how system administrators manage users, computers, permissions, and security policies in a controlled on-prem environment.
+The lab emphasizes **practical administration skills** rather than theoretical configuration.
 
 ---
 
-## 2. Architecture
+## Prerequisites
 
-**Domain Name:** `corp.local`
+Before setting up the lab, ensure the following software and tools are available:
+
+1. **VMware Workstation Pro**
+2. **Windows Server 2022 ISO**
+3. **Windows 10 / Windows 11 ISO**
+4. **Basic networking knowledge (DNS, DHCP, IP addressing)**
+5. **PowerShell (built into Windows Server)**
+
+---
+
+## Architecture
+
+### Domain
 
 ### Virtual Machines
 
@@ -41,26 +55,129 @@ The lab demonstrates how system administrators manage users, computers, permissi
 | FS01 | File Server, Print Server |
 | CLIENT01 | Domain-joined workstation |
 
-📸 *Architecture diagram:*  
-![Architecture](docs/architecture-diagram.png)
+<img src="./screenshots/architecture-diagram.png" width="700">
 
 ---
 
-## 3. Technologies Used
-
-- Windows Server 2022  
-- Windows 11 Client  
-- VMware Workstation Pro  
-- Active Directory Domain Services (AD DS)  
-- DNS  
-- Group Policy Management  
-- PowerShell  
-- NTFS & SMB  
-- Print and Document Services  
-
----
-
-## 4. Active Directory Design
+## Active Directory Design
 
 ### Organizational Unit (OU) Structure
 
+A structured OU hierarchy was implemented to enable scalable administration and clean Group Policy targeting.
+
+corp.local
+├── Admins
+├── Servers
+├── Workstations
+├── CorpUsers
+│ ├── Finance
+│ ├── HR
+│ └── IT
+└── Groups
+
+
+**OU Design Rationale**
+- **Admins** – Administrative user accounts  
+- **Servers** – Member servers (File / Print servers)  
+- **Workstations** – Domain-joined client systems  
+- **CorpUsers** – Standard users organized by department  
+- **Groups** – Security groups used for RBAC and policy targeting  
+
+<img src="./screenshots/ou-structure.png" width="700">
+
+---
+
+## Users and Groups (RBAC)
+
+### Security Groups Created
+
+- `Finance_Modify`
+- `HR_Read`
+- `IT_Admin`
+- `Workstation_Users`
+
+Role-Based Access Control (RBAC) was implemented by assigning permissions to **security groups instead of individual users**, following enterprise best practices.
+
+<img src="./screenshots/users-groups.png" width="700">
+
+---
+
+## File Server Configuration
+
+A centralized file server (**FS01**) was configured and joined to the domain.
+
+### Shared Folders
+
+| Share | Path | Access |
+|----|----|----|
+| Finance | `C:\Shares\Finance` | Finance_Modify – Modify |
+| HR | `C:\Shares\HR` | HR_Read – Read |
+
+- NTFS permissions enforced least-privilege access  
+- Default permissions were removed  
+- Access controlled strictly through security groups  
+
+<img src="./screenshots/file-shares.png" width="700">
+
+---
+
+## Group Policy Implementation
+
+### Domain Security Policies
+- Password complexity enforced
+- Account lockout configured
+- Applied at the domain level
+
+### User Restrictions Policy
+- Control Panel and Windows Settings blocked
+- Applied to `OU=CorpUsers`
+
+<img src="./screenshots/control-panel-blocked.png" width="700">
+
+---
+
+## Drive Mapping via GPO
+
+Network drives were automated using **Group Policy Preferences**.
+
+
+- Applied at user logon  
+- Item-level targeting based on `Finance_Modify` security group  
+
+<img src="./screenshots/drive-mapping.png" width="700">
+
+---
+
+## USB Security Enforcement
+
+USB storage devices were blocked using a **Computer Configuration Group Policy**.
+
+
+- Applied to `OU=Workstations`
+- Validated using VMware USB passthrough  
+
+<img src="./screenshots/usb-blocked.png" width="700">
+
+---
+
+## Printer Deployment
+
+A centralized print server was deployed on **FS01**.
+
+- Print and Document Services installed
+- Virtual printer created and shared
+- Deployed via Group Policy Preferences
+- Targeted using `Finance_Modify`
+
+<img src="./screenshots/printer-deployed.png" width="700">
+
+---
+
+## Validation and Testing
+
+Validation was performed using:
+
+```bash
+gpupdate /force
+gpresult /r
+whoami /groups
