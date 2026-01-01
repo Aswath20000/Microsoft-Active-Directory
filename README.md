@@ -195,14 +195,14 @@ A dedicated Group Policy Object (GPO) was created to enforce user-level restrict
 #### Configured Settings
 - Prohibit access to Control Panel and Windows Settings
 
-<img src="./screenshots/USER-POLICY-CONTROL.png" width="700">
-<img src="./screenshots/CONTROL--PANEL.png" width="700">
+<img src="./Screenshots/USER-POLICY-CONTROL.png" width="700">
+<img src="./Screenshots/CONTROL--PANEL.png" width="700">
 
 #### Policy Enforcement Result
 
 When a standard domain user attempts to access the Control Panel or Windows Settings, access is denied as expected.
 
-<img src="./screenshots/CONTROL-PANEL-DENIED.png" width="700">
+<img src="./Screenshots/CONTROL-PANEL-DENIED.png" width="700">
 
 
 ## Drive Mapping via GPO
