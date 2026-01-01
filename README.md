@@ -15,7 +15,7 @@ This project demonstrates structured Organizational Unit (OU) design, Role-Based
 6. [File Server Configuration](#file-server-configuration)
 7. [Group Policy Implementation](#group-policy-implementation)
 8. [Drive Mapping via GPO](#drive-mapping-via-gpo)
-9. [User Restrictions Policy – Control Panel](#user-restrictions-policy)
+9. [User Restriction Policy – Control Panel](#user-restrictions-policy)
 10. [USB Security Enforcement](#Workstation-Security-Policy-USB-StorageControl)
 11. [Printer Deployment](#Print-Server-and-Printer-Deployment)
 12. [Validation and Testing](#Validation-Outcome)
