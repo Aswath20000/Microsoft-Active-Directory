@@ -213,7 +213,10 @@ Network drives were automated using **Group Policy Preferences**.
 - Applied at user logon  
 - Item-level targeting based on `Finance_Modify` security group  
 
-<img src="./screenshots/drive-mapping.png" width="700">
+<img src="./screenshots/FINANCE1.png" width="700">
+<img src="./screenshots/FINANCE2.png" width="700">
+<img src="./screenshots/FINANCE3.png" width="700">
+
 
 ---
 
