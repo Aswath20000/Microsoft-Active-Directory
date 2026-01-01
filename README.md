@@ -70,7 +70,12 @@ A structured OU hierarchy was implemented to enable scalable administration and 
 - **Servers** – Member servers (File / Print servers)  
 - **Workstations** – Domain-joined client systems  
 - **CorpUsers** – Standard users organized by department  
-- **Groups** – Security groups used for RBAC and policy targeting  
+- **Groups** – Security groups used for RBAC and policy targeting
+
+**Execute Script :  AD_OU-structure**
+
+<img src="./Screenshots/structure.png" width="700">
+
 
 <img src="./Screenshots/ou-structure.png" width="700">
 
