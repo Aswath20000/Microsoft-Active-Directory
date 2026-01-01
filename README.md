@@ -98,7 +98,10 @@ execute the Script 1 in Scripts Folder
 
 
 
-### Security Groups Created
+### Security Groups Creation and making users members of creating sec-groups.
+
+execute group.ps1 in Scripts 
+<img src="./Screenshots/sec-group creation and users.png" width="700">
 
 - `Finance_Modify`
 - `HR_Read`
