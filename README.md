@@ -83,7 +83,7 @@ corp.local
 - **CorpUsers** – Standard users organized by department  
 - **Groups** – Security groups used for RBAC and policy targeting  
 
-<img src="./screenshots/ou-structure.png" width="700">
+<img src="./Screenshots/ou-structure.png" width="700">
 
 ---
 
