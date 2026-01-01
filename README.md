@@ -144,7 +144,7 @@ A centralized file server (**FS01**) was configured and joined to the domain.
 - Default permissions were removed  
 - Access controlled strictly through security groups  
 
-<img src="./Screenshots/file-shares.png" width="700">
+
 
 ---
 
