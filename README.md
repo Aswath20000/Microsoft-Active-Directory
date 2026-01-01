@@ -89,6 +89,15 @@ corp.local
 
 ## Users and Groups (RBAC)
 
+Adding users to the Organizational Units created.
+
+<img src="./Screenshots/ou-structure.png" width="700">
+
+
+execute the Script 1 in Scripts Folder
+
+
+
 ### Security Groups Created
 
 - `Finance_Modify`
