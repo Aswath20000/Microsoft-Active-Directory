@@ -91,7 +91,7 @@ corp.local
 
 Adding users to the Organizational Units created.
 
-<img src="./Screenshots/ou-structure.png" width="700">
+<img src="./Screenshots/user-creation.png" width="700">
 
 
 execute the Script 1 in Scripts Folder
