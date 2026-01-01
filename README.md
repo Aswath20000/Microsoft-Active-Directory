@@ -16,7 +16,7 @@ This project demonstrates structured Organizational Unit (OU) design, Role-Based
 7. [Group Policy Implementation](#group-policy-implementation)
 8. [Drive Mapping via GPO](#drive-mapping-via-gpo)
 9. [USB Security Enforcement](#usb-security-enforcement)
-10. [Printer Deployment](#Print Server and Printer Deployment)
+10. [Printer Deployment](#Print-Server-and-Printer-Deployment)
 11. [Validation and Testing](#Validation-Outcome)
 
 ---
@@ -242,7 +242,7 @@ When a USB storage device is inserted into a domain-joined workstation, access i
 
 ---
 
-## Print Server and Printer Deployment
+## Print-Server-and-Printer-Deployment
 
 A centralized print server was deployed to manage and distribute printers across the domain using Group Policy Preferences and Role-Based Access Control (RBAC).
 
