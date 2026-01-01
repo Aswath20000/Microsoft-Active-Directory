@@ -17,8 +17,7 @@ This project demonstrates structured Organizational Unit (OU) design, Role-Based
 8. [Drive Mapping via GPO](#drive-mapping-via-gpo)
 9. [USB Security Enforcement](#usb-security-enforcement)
 10. [Printer Deployment](#printer-deployment)
-11. [Validation and Testing](#validation-and-testing)
-12. [Conclusion](#conclusion)
+11. [Validation and Testing](#Validation-Outcome)
 
 ---
 
@@ -279,11 +278,19 @@ Item-level targeting was used to ensure the printer is deployed only to authoriz
 
 ---
 
-## Validation and Testing
+### Validation-Outcome
 
-Validation was performed using:
+The applied Group Policy Objects (GPOs) were successfully validated across domain-joined client systems. Policy refresh and reporting confirmed that both user-based and computer-based configurations were applied as intended.
 
-```bash
-gpupdate /force
-gpresult /r
-whoami /groups
+- `gpupdate /force` verified immediate policy application without errors.
+- `gpresult /r` confirmed that the correct GPOs were applied to both user and computer scopes.
+- `whoami /groups` validated Role-Based Access Control (RBAC) by confirming effective security group memberships during user sessions.
+
+End-user testing further confirmed:
+- Restricted access to Control Panel and system settings for standard users
+- Blocked USB storage devices on managed workstations
+- Automatic network drive mapping based on department membership
+- Automatic printer deployment using security group targeting
+
+These results demonstrate a correctly scoped, secure, and fully functional Active Directory environment aligned with enterprise best practices.
+
