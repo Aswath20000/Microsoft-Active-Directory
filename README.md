@@ -15,9 +15,10 @@ This project demonstrates structured Organizational Unit (OU) design, Role-Based
 6. [File Server Configuration](#file-server-configuration)
 7. [Group Policy Implementation](#group-policy-implementation)
 8. [Drive Mapping via GPO](#drive-mapping-via-gpo)
-9. [USB Security Enforcement](#usb-security-enforcement)
-10. [Printer Deployment](#Print-Server-and-Printer-Deployment)
-11. [Validation and Testing](#Validation-Outcome)
+9. [User Restrictions Policy – Control Panel](#user-restrictions-policy)
+10. [USB Security Enforcement](#Workstation-Security-Policy-USB-StorageControl)
+11. [Printer Deployment](#Print-Server-and-Printer-Deployment)
+12. [Validation and Testing](#Validation-Outcome)
 
 ---
 
@@ -183,7 +184,7 @@ Share permissions were used to control network-level access, while NTFS permissi
 
 
 
-### User Restrictions Policy
+### User-Restrictions-Policy
 
 A dedicated Group Policy Object (GPO) was created to enforce user-level restrictions and linked to the `CorpUsers` Organizational Unit. This ensures restrictions follow users regardless of the workstation they log into.
 
@@ -219,7 +220,7 @@ Network drives were automated using **Group Policy Preferences**.
 
 ---
 
-### Workstation Security Policy (USB Storage Control)
+### Workstation-Security-Policy-USB-StorageControl
 
 A computer-based Group Policy Object (GPO) was implemented to restrict the use of removable storage devices across all domain-joined workstations.
 
